@@ -43,6 +43,7 @@ main {
     margin: 0;
     padding: 0;
     gap: 30px;
+    margin-left: 20px;
 }
 
 .nav-links a {
@@ -59,9 +60,60 @@ main {
     border-bottom-color: #4a6ee0;
 }
 
-.nav-search {
-    font-weight: bold;
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.login-button {
+    text-decoration: none;
     color: #333;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    transition: color 0.3s;
+    white-space: nowrap; /* Evita que el texto se rompa */
+}
+
+.login-button:hover {
+    color: #4a6ee0;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 35px;
+}
+
+.search-box input {
+    border: none;
+    padding: 5px 10px;
+    height: 100%;
+    outline: none;
+    font-size: 0.9rem;
+    width: 150px;
+}
+
+.search-box button {
+    background-color: #f0f2f5;
+    border: none;
+    height: 100%;
+    padding: 0 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+    color: #333; /* Color para el ícono de Font Awesome */
+}
+
+.search-box button:hover {
+    background-color: #e0e2e5;
 }
 
 /* =============================================== */
@@ -76,10 +128,10 @@ main {
     align-items: center;
     justify-content: flex-start;
     padding-left: 8%;
+    color: white;
 }
 
 .hero-content {
-    color: white;
     text-align: left;
     max-width: 450px;
 }
@@ -151,7 +203,7 @@ main {
 .info-card p {
     font-size: 0.9rem;
     line-height: 1.5;
-    height: 100px;
+    height: 100px; 
 }
 
 .info-card a {
@@ -185,7 +237,7 @@ main {
 }
 
 .card {
-    background-color: #0d1a2d;
+    background-color: #0d1a2d; /* Puedes cambiarlo a #1a2c42 si prefieres un contraste sutil */
     border-radius: 10px;
     overflow: hidden;
     text-align: left;
@@ -230,6 +282,7 @@ main {
     color: #0d1a2d;
 }
 
+
 /* =============================================== */
 /* --- 6. SECCIÓN COMING SOON --- */
 /* =============================================== */
@@ -251,6 +304,10 @@ main {
     gap: 20px;
     max-width: 1400px;
     margin: 0 auto;
+}
+
+.movie-poster {
+    text-align: center;
 }
 
 .movie-poster img {
@@ -298,6 +355,7 @@ main {
     border: 1px solid #e1e1e1;
     border-radius: 8px;
     overflow: hidden;
+    text-align: left;
 }
 
 .park-card > img {
@@ -349,9 +407,14 @@ main {
     width: 100%;
 }
 
+.visa-content {
+    text-align: left;
+}
+
 .visa-content h2 {
     font-size: 1.2rem;
     letter-spacing: 2px;
+    text-align: left;
 }
 
 .visa-content h4 {
@@ -441,6 +504,9 @@ main {
     .coming-soon-grid {
         grid-template-columns: repeat(3, 1fr);
     }
+    .nav-links {
+        display: none;
+    }
 }
 
 /* Para celulares y pantallas pequeñas */
@@ -448,29 +514,51 @@ main {
     .main-header {
         padding: 0 15px;
     }
-    .main-nav, .nav-links {
-        flex-direction: column;
+    .main-nav {
+        flex-wrap: wrap; /* Permitir que los elementos salten de línea */
+        justify-content: space-between;
         height: auto;
-        gap: 15px;
-        padding: 15px 0;
+        padding: 10px 0;
     }
+    .nav-links {
+        display: none; /* Mantener oculto para menú hamburguesa futuro */
+    }
+    .nav-right {
+        order: 3; /* Mover el search y login debajo del logo */
+        width: 100%;
+        margin-top: 10px;
+        justify-content: center; /* Centrar el login y search */
+    }
+    .search-box {
+        width: 100%;
+        max-width: 300px; /* Limitar el ancho en móviles */
+    }
+    .search-box input {
+        flex-grow: 1; /* El input tomará el espacio disponible */
+    }
+
     .hero-section {
         justify-content: center;
         padding: 20px;
         text-align: center;
     }
+
     .hero-content {
+        padding-left: 0;
         text-align: center;
     }
+    
     .explore-grid, 
     .cards-grid,
     .vacation-grid,
     .visa-grid {
         grid-template-columns: 1fr;
     }
+
     .coming-soon-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .info-card p {
         height: auto;
     }
